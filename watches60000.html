@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Americana Timepieces - Premium American Watches</title>
+<script src="https://js.paystack.co/v1/inline.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:wght@400..900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--primary:#0a0e17;--primary-light:#141b2b;--primary-dark:#05080f;--gold:#c9a84c;--gold-light:#e8d5a3;--gold-dark:#a8893a;--white:#f5f2ed;--gray:#8a8a8a;--gray-light:#b0b0b0;--gray-dark:#4a4a4a;--bg-card:#111927;--bg-hover:#1a2538;--shadow:0 20px 60px rgba(0,0,0,.7);--shadow-gold:0 0 40px rgba(201,168,76,.15);--radius:16px;--radius-sm:8px;--transition:.35s cubic-bezier(.25,.46,.45,.94);--font-body:'Inter',sans-serif;--font-display:'Playfair Display',serif}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-body);background:var(--primary);color:var(--white);line-height:1.6;overflow-x:hidden;min-height:100vh}
+::-webkit-scrollbar{width:8px;height:8px}::-webkit-scrollbar-track{background:var(--primary-dark)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:10px}
+a{text-decoration:none;color:inherit}img{max-width:100%;display:block}
+button{cursor:pointer;font-family:var(--font-body);border:none;outline:none;background:none;color:inherit}
+ul{list-style:none}
+.container{max-width:1400px;margin:0 auto;padding:0 30px}
+
+/* HEADER */
+.header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,14,23,.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,168,76,.15);padding:14px 0}
+.header-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.logo{font-family:var(--font-display);font-size:26px;font-weight:700;letter-spacing:2px;color:var(--gold);display:flex;align-items:center;gap:8px;cursor:pointer}
+.logo span{color:var(--white);font-weight:300}
+.logo i{font-size:24px;color:var(--gold)}
+.nav-links{display:flex;align-items:center;gap:24px}
+.nav-links a{font-size:12px;font-weight:500;letter-spacing:.5px;text-transform:uppercase;color:var(--gray-light);transition:var(--transition);position:relative;padding:4px 0;cursor:pointer}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:var(--gold);transition:var(--transition)}
+.nav-links a:hover,.nav-links a.active{color:var(--white)}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.nav-actions{display:flex;align-items:center;gap:14px}
+.search-btn,.cart-btn{font-size:20px;color:var(--gray-light);padding:6px;transition:var(--transition);position:relative}
+.search-btn:hover,.cart-btn:hover{color:var(--gold)}
+.cart-count{position:absolute;top:-4px;right:-6px;background:var(--gold);color:var(--primary);font-size:10px;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.mobile-toggle{display:none;font-size:24px;color:var(--white);padding:4px}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+.hero{position:relative;min-height:80vh;display:flex;align-items:center;background:radial-gradient(ellipse at 30% 50%,var(--primary-light),var(--primary-dark));overflow:hidden;border-radius:0 0 60px 60px;margin-bottom:40px}
+.hero::before{content:'';position:absolute;top:-40%;right:-10%;width:70%;height:140%;background:radial-gradient(circle,rgba(201,168,76,.06) 0%,transparent 70%);pointer-events:none}
+.hero-content{position:relative;z-index:2;max-width:700px;padding:60px 0}
+.hero-badge{display:inline-block;background:rgba(201,168,76,.15);color:var(--gold);padding:6px 20px;border-radius:100px;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;border:1px solid rgba(201,168,76,.2);margin-bottom:22px}
+.hero h1{font-family:var(--font-display);font-size:clamp(40px,7vw,76px);font-weight:700;line-height:1.05;margin-bottom:20px}
+.hero h1 .highlight{color:var(--gold);position:relative}
+.hero h1 .highlight::after{content:'';position:absolute;bottom:4px;left:0;right:0;height:6px;background:rgba(201,168,76,.25);border-radius:10px}
+.hero p{font-size:17px;color:var(--gray-light);max-width:500px;margin-bottom:32px;line-height:1.8}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px}
+.hero-stats{display:flex;gap:44px;margin-top:44px;padding-top:28px;border-top:1px solid rgba(255,255,255,.06);flex-wrap:wrap}
+.hero-stats .stat .num{font-family:var(--font-display);font-size:30px;font-weight:700;color:var(--gold)}
+.hero-stats .stat .label{font-size:12px;color:var(--gray);letter-spacing:.5px}
+.hero-image{position:absolute;right:0;top:50%;transform:translateY(-50%);width:45%;max-width:600px;opacity:.15;pointer-events:none}
+.hero-image i{font-size:480px;color:var(--gold)}
+
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:100px;font-weight:600;font-size:12px;letter-spacing:.5px;transition:var(--transition);text-transform:uppercase;cursor:pointer}
+.btn-primary{background:var(--gold);color:var(--primary)}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-3px);box-shadow:0 12px 40px rgba(201,168,76,.3)}
+.btn-secondary{border:1px solid rgba(255,255,255,.15);color:var(--white);background:rgba(255,255,255,.04)}
+.btn-secondary:hover{background:rgba(255,255,255,.1);transform:translateY(-3px)}
+.btn-gold-outline{border:1px solid var(--gold);color:var(--gold);background:transparent}
+.btn-gold-outline:hover{background:var(--gold);color:var(--primary);transform:translateY(-3px)}
+.btn-sm{padding:9px 20px;font-size:11px}
+
+.section-title{font-family:var(--font-display);font-size:clamp(28px,4vw,42px);font-weight:700;margin-bottom:10px}
+.section-title .gold{color:var(--gold)}
+.section-subtitle{color:var(--gray);font-size:14px;max-width:600px;margin-bottom:32px}
+.section-header{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:18px;margin-bottom:32px}
+
+.watches-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:22px;margin-bottom:32px}
+.watch-card{background:var(--bg-card);border-radius:var(--radius);padding:20px 16px 16px;transition:var(--transition);border:1px solid rgba(255,255,255,.04);position:relative;display:flex;flex-direction:column}
+.watch-card:hover{transform:translateY(-8px);border-color:rgba(201,168,76,.25);box-shadow:var(--shadow-gold),var(--shadow);background:var(--bg-hover)}
+.watch-card .badge{position:absolute;top:12px;left:12px;background:var(--gold);color:var(--primary);font-size:9px;font-weight:700;padding:3px 11px;border-radius:100px;text-transform:uppercase;letter-spacing:.5px;z-index:2}
+.watch-card .badge.sold-out{background:var(--gray-dark);color:var(--gray-light)}
+.watch-card .watch-image{width:100%;aspect-ratio:1/1;background:#05080f;border-radius:var(--radius-sm);overflow:hidden;display:flex;align-items:center;justify-content:center;margin-bottom:12px;border:1px solid rgba(201,168,76,.08);cursor:pointer;position:relative}
+.watch-card .watch-image img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.watch-card:hover .watch-image img{transform:scale(1.05)}
+.watch-card .watch-image .fallback-icon{display:none;width:100%;height:100%;align-items:center;justify-content:center;font-size:42px;color:var(--gold);background:var(--bg-card);flex-direction:column;gap:6px}
+.watch-card .watch-image .fallback-icon span{font-size:10px;color:var(--gray);text-transform:uppercase;letter-spacing:1px;font-weight:600}
+.watch-card .watch-image img.error~.fallback-icon{display:flex}
+.watch-card .watch-brand{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);font-weight:600;margin-bottom:4px}
+.watch-card .watch-name{font-size:14px;font-weight:600;color:var(--white);margin-bottom:4px;line-height:1.3;cursor:pointer}
+.watch-card .watch-name:hover{color:var(--gold)}
+.watch-card .watch-rating{font-size:11px;color:var(--gray);display:flex;gap:6px;align-items:center;margin-top:2px}
+.watch-card .watch-rating .stars{color:var(--gold)}
+.watch-card .watch-price{font-size:17px;font-weight:700;color:var(--gold);margin-top:8px}
+.watch-card .watch-price .old{font-size:12px;color:var(--gray);text-decoration:line-through;font-weight:400;margin-left:6px}
+.watch-card .watch-actions{display:flex;align-items:center;gap:6px;margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,.05)}
+.watch-card .watch-actions .btn{flex:1;justify-content:center;padding:8px 10px;font-size:10px}
+
+.pagination{display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;margin:20px 0 40px}
+.pagination button{min-width:38px;height:38px;padding:0 12px;border-radius:50%;font-weight:600;font-size:12px;color:var(--gray-light);transition:var(--transition);background:transparent;border:1px solid rgba(255,255,255,.06)}
+.pagination button:hover{border-color:var(--gold);color:var(--white)}
+.pagination button.active{background:var(--gold);color:var(--primary);border-color:var(--gold)}
+
+.page-hero{padding:50px 0 40px;background:radial-gradient(ellipse at 60% 40%,var(--primary-light),var(--primary-dark));border-radius:0 0 40px 40px;margin-bottom:36px;text-align:center;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(201,168,76,.08),transparent 50%);pointer-events:none}
+.page-hero h1{font-family:var(--font-display);font-size:clamp(32px,5vw,52px);font-weight:700;margin-bottom:12px;position:relative;z-index:1}
+.page-hero h1 .gold{color:var(--gold)}
+.page-hero p{color:var(--gray-light);max-width:640px;margin:0 auto;position:relative;z-index:1;font-size:15px}
+.breadcrumb{display:flex;align-items:center;justify-content:center;gap:8px;font-size:12px;color:var(--gray);margin-bottom:18px;position:relative;z-index:1;flex-wrap:wrap}
+.breadcrumb a{color:var(--gold);cursor:pointer}
+.breadcrumb i{font-size:9px}
+
+.about-hero{padding:50px 0;background:radial-gradient(ellipse at 70% 30%,var(--primary-light),var(--primary-dark));border-radius:0 0 60px 60px;margin-bottom:44px}
+.about-hero .container{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.about-hero .about-text h1{font-family:var(--font-display);font-size:clamp(32px,5vw,52px);font-weight:700;margin-bottom:16px}
+.about-hero .about-text p{color:var(--gray-light);font-size:15px;line-height:1.8;margin-bottom:16px}
+.about-hero .about-image{display:flex;justify-content:center;align-items:center;font-size:150px;color:var(--gold);opacity:.6}
+.about-values{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px;margin:44px 0}
+.value-card{background:var(--bg-card);padding:28px 20px;border-radius:var(--radius);text-align:center;border:1px solid rgba(255,255,255,.04);transition:var(--transition)}
+.value-card:hover{border-color:rgba(201,168,76,.2);transform:translateY(-4px)}
+.value-card i{font-size:34px;color:var(--gold);margin-bottom:14px}
+.value-card h3{font-size:16px;margin-bottom:8px}
+.value-card p{color:var(--gray);font-size:13px;line-height:1.6}
+
+.content-page{padding:20px 0 60px}
+.content-page h2{font-family:var(--font-display);font-size:26px;color:var(--white);margin:30px 0 12px;font-weight:700}
+.content-page h3{font-size:17px;color:var(--gold);margin:20px 0 8px;font-weight:600}
+.content-page p{color:var(--gray-light);line-height:1.85;margin-bottom:14px;font-size:14px}
+.content-page ul{list-style:disc;padding-left:22px;margin-bottom:16px;color:var(--gray-light);font-size:14px;line-height:1.8}
+.content-page ul li{margin-bottom:6px}
+.info-box{background:var(--bg-card);border-left:3px solid var(--gold);padding:16px 20px;border-radius:var(--radius-sm);margin:18px 0;color:var(--gray-light);font-size:14px;line-height:1.7}
+.info-box strong{color:var(--gold)}
+
+.faq-item{background:var(--bg-card);border-radius:var(--radius-sm);margin-bottom:10px;border:1px solid rgba(255,255,255,.04);overflow:hidden}
+.faq-question{padding:16px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:600;font-size:14px}
+.faq-question:hover{color:var(--gold)}
+.faq-question i{color:var(--gold);transition:transform .3s;font-size:12px}
+.faq-item.open .faq-question i{transform:rotate(180deg)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height .4s ease;padding:0 20px}
+.faq-item.open .faq-answer{max-height:500px;padding-bottom:16px}
+.faq-answer p{color:var(--gray-light);font-size:13px;line-height:1.8}
+
+.contact-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:40px;align-items:start}
+.contact-info{display:flex;flex-direction:column;gap:16px}
+.info-card{background:var(--bg-card);padding:22px;border-radius:var(--radius-sm);border:1px solid rgba(255,255,255,.04)}
+.info-card i{font-size:22px;color:var(--gold);margin-bottom:10px}
+.info-card h4{font-size:14px;margin-bottom:6px}
+.info-card p{color:var(--gray);font-size:13px;line-height:1.7}
+.contact-form{background:var(--bg-card);padding:30px;border-radius:var(--radius);border:1px solid rgba(255,255,255,.04)}
+.contact-form h3{font-family:var(--font-display);font-size:20px;margin-bottom:18px}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--gold);margin-bottom:6px;font-weight:600}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:11px 14px;background:var(--primary-dark);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-sm);color:var(--white);font-family:var(--font-body);font-size:13px}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.1)}
+.form-group textarea{min-height:110px;resize:vertical}
+
+.brand-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px;margin-bottom:32px}
+.brand-card{background:var(--bg-card);border-radius:var(--radius-sm);padding:20px 14px;text-align:center;border:1px solid rgba(255,255,255,.04);cursor:pointer;transition:var(--transition)}
+.brand-card:hover{border-color:var(--gold);transform:translateY(-4px);background:var(--bg-hover)}
+.brand-card i{font-size:26px;color:var(--gold);margin-bottom:10px}
+.brand-card .brand-name{font-family:var(--font-display);font-size:15px;font-weight:600;margin-bottom:4px}
+.brand-card .brand-count{font-size:10px;color:var(--gray);text-transform:uppercase;letter-spacing:1px}
+.category-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;margin-bottom:32px}
+.category-card{position:relative;background:linear-gradient(135deg,var(--primary-light),var(--primary-dark));border-radius:var(--radius);padding:28px 20px;border:1px solid rgba(255,255,255,.04);cursor:pointer;transition:var(--transition);overflow:hidden;min-height:140px;display:flex;flex-direction:column;justify-content:flex-end}
+.category-card:hover{border-color:var(--gold);transform:translateY(-6px);box-shadow:var(--shadow-gold)}
+.category-card i{position:absolute;top:18px;right:18px;font-size:50px;color:rgba(201,168,76,.15)}
+.category-card h3{font-family:var(--font-display);font-size:20px;font-weight:600;margin-bottom:6px}
+.category-card p{color:var(--gray);font-size:12px}
+
+.cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(8px);z-index:2000;display:none}
+.cart-overlay.open{display:block}
+.cart-sidebar{position:fixed;top:0;right:-500px;width:460px;max-width:92vw;height:100%;background:var(--primary-dark);z-index:2001;padding:26px 22px;transition:right .4s cubic-bezier(.25,.46,.45,.94);display:flex;flex-direction:column;border-left:1px solid rgba(201,168,76,.1);box-shadow:-20px 0 60px rgba(0,0,0,.6)}
+.cart-sidebar.open{right:0}
+.cart-header{display:flex;justify-content:space-between;align-items:center;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.06);margin-bottom:16px}
+.cart-header h2{font-family:var(--font-display);font-size:20px}
+.cart-header .close-cart{font-size:24px;color:var(--gray);padding:4px}
+.cart-header .close-cart:hover{color:var(--white);transform:rotate(90deg)}
+.cart-items{flex:1;overflow-y:auto;padding-right:4px}
+.empty-cart{text-align:center;padding:60px 0;color:var(--gray)}
+.empty-cart i{font-size:50px;color:var(--gray-dark);margin-bottom:14px}
+.cart-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.04);align-items:center}
+.cart-item .item-image{width:54px;height:54px;border-radius:var(--radius-sm);overflow:hidden;flex-shrink:0;background:var(--bg-card);display:flex;align-items:center;justify-content:center}
+.cart-item .item-image img{width:100%;height:100%;object-fit:cover}
+.cart-item .item-image i{font-size:26px;color:var(--gold)}
+.cart-item .item-info{flex:1;min-width:0}
+.cart-item .item-info .name{font-weight:600;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cart-item .item-info .brand{font-size:10px;color:var(--gold)}
+.cart-item .item-info .price{font-weight:700;color:var(--gold);font-size:13px}
+.cart-item .item-qty{display:flex;align-items:center;gap:5px}
+.cart-item .item-qty button{width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.06);color:var(--white);font-size:12px;display:flex;align-items:center;justify-content:center}
+.cart-item .item-qty button:hover{background:var(--gold);color:var(--primary)}
+.cart-item .item-qty span{min-width:20px;text-align:center;font-weight:600;font-size:12px}
+.cart-item .remove-item{color:var(--gray);font-size:14px;padding:4px}
+.cart-item .remove-item:hover{color:#ff6b6b}
+.cart-footer{padding-top:16px;border-top:1px solid rgba(255,255,255,.06);margin-top:14px}
+.cart-total{display:flex;justify-content:space-between;font-size:18px;font-weight:700;margin-bottom:14px}
+.cart-total .amount{color:var(--gold)}
+.cart-footer .btn{width:100%;justify-content:center;padding:14px;font-size:13px}
+
+/* PAYSTACK MODAL */
+.payment-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);backdrop-filter:blur(12px);z-index:3000;display:none;align-items:center;justify-content:center;padding:20px}
+.payment-overlay.open{display:flex}
+.payment-modal{background:var(--primary-light);border-radius:var(--radius);padding:36px 32px;max-width:520px;width:100%;border:1px solid rgba(201,168,76,.15);box-shadow:var(--shadow);animation:slideUp .4s;position:relative;overflow:hidden}
+.payment-modal::before{content:'';position:absolute;top:-50%;right:-20%;width:80%;height:180%;background:radial-gradient(circle,rgba(201,168,76,.08),transparent 60%);pointer-events:none}
+@keyframes slideUp{from{opacity:0;transform:translateY(40px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+.pm-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;position:relative}
+.pm-header h2{font-family:var(--font-display);font-size:22px}
+.pm-header .close-pm{font-size:24px;color:var(--gray);padding:4px}
+.pm-header .close-pm:hover{color:var(--white);transform:rotate(90deg)}
+.pm-paystack-logo{display:flex;align-items:center;gap:12px;background:var(--bg-card);padding:16px 20px;border-radius:var(--radius-sm);margin-bottom:20px;border:1px solid rgba(201,168,76,.1)}
+.pm-paystack-logo .ps-icon{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#00C3F7,#0BA4E5);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.pm-paystack-logo .ps-icon i{font-size:22px;color:white}
+.pm-paystack-logo .ps-text{flex:1}
+.pm-paystack-logo .ps-title{font-weight:700;font-size:15px;color:var(--white);margin-bottom:2px}
+.pm-paystack-logo .ps-subtitle{font-size:11px;color:var(--gray)}
+.pm-summary{background:var(--bg-card);padding:18px 20px;border-radius:var(--radius-sm);margin-bottom:20px;border:1px solid rgba(201,168,76,.08);position:relative}
+.pm-summary .row{display:flex;justify-content:space-between;font-size:13px;color:var(--gray-light);margin-bottom:8px}
+.pm-summary .row.total{font-size:20px;font-weight:700;color:var(--white);padding-top:12px;margin-top:8px;border-top:1px solid rgba(255,255,255,.06);margin-bottom:0}
+.pm-summary .row.total .amount{color:var(--gold)}
+.pm-email-group{margin-bottom:18px;position:relative}
+.pm-email-group label{display:block;font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--gold);margin-bottom:6px;font-weight:600}
+.pm-email-group input{width:100%;padding:12px 14px;background:var(--primary-dark);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius-sm);color:var(--white);font-family:var(--font-body);font-size:14px}
+.pm-email-group input:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.12)}
+.pm-email-group input.error{border-color:#e74c3c}
+.pm-email-error{font-size:11px;color:#e74c3c;margin-top:5px;display:none}
+.pm-email-error.show{display:block}
+.pm-submit{width:100%;padding:16px;font-size:15px;font-weight:700;background:linear-gradient(135deg,#00C3F7,#0BA4E5);color:white;border-radius:var(--radius-sm);transition:var(--transition);text-transform:uppercase;letter-spacing:1px;display:flex;align-items:center;justify-content:center;gap:10px;position:relative}
+.pm-submit:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,195,247,.4)}
+.pm-submit:disabled{opacity:.6;cursor:not-allowed}
+.pm-secure{display:flex;align-items:center;justify-content:center;gap:8px;font-size:12px;color:var(--gray);margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.04);position:relative}
+.pm-secure i{color:#2ecc71}
+.pm-badges{display:flex;justify-content:center;gap:14px;margin-top:12px;position:relative;flex-wrap:wrap}
+.pm-badges span{font-size:11px;color:var(--gray);display:flex;align-items:center;gap:4px}
+.pm-badges i{color:var(--gold);font-size:12px}
+
+.footer{background:var(--primary-dark);border-top:1px solid rgba(201,168,76,.06);padding:50px 0 22px;margin-top:40px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:36px}
+.footer-col h4{font-family:var(--font-display);font-size:14px;color:var(--gold);margin-bottom:14px;font-weight:600;letter-spacing:1px;text-transform:uppercase}
+.footer-col p{color:var(--gray);font-size:12px;line-height:1.8;margin-bottom:12px}
+.footer-col ul li{margin-bottom:7px}
+.footer-col ul li a{color:var(--gray-light);font-size:12px;cursor:pointer}
+.footer-col ul li a:hover{color:var(--gold);padding-left:4px}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.footer-bottom .copy{color:var(--gray);font-size:12px}
+.footer-socials{display:flex;gap:12px}
+.footer-socials a{color:var(--gray);font-size:16px}
+.footer-socials a:hover{color:var(--gold)}
+
+.toast{position:fixed;bottom:24px;right:24px;background:var(--primary-light);border:1px solid rgba(201,168,76,.2);padding:13px 22px;border-radius:var(--radius-sm);color:var(--white);font-weight:500;font-size:13px;z-index:5000;box-shadow:var(--shadow);transform:translateY(100px);opacity:0;transition:all .4s ease;max-width:360px}
+.toast.show{transform:translateY(0);opacity:1}
+.toast .toast-icon{color:var(--gold);margin-right:10px}
+
+.scroll-top{position:fixed;bottom:24px;left:24px;width:44px;height:44px;border-radius:50%;background:var(--gold);color:var(--primary);font-size:16px;display:flex;align-items:center;justify-content:center;z-index:999;box-shadow:0 4px 20px rgba(201,168,76,.3);opacity:0;transform:translateY(20px);pointer-events:none;transition:var(--transition)}
+.scroll-top.visible{opacity:1;transform:translateY(0);pointer-events:auto}
+.scroll-top:hover{transform:translateY(-4px)}
+
+.directory-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.dir-card{background:var(--bg-card);border:1px solid rgba(255,255,255,.04);border-radius:var(--radius-sm);padding:16px 18px;cursor:pointer;display:flex;align-items:center;gap:12px;transition:var(--transition)}
+.dir-card:hover{border-color:var(--gold);background:var(--bg-hover);transform:translateX(4px)}
+.dir-card i{font-size:18px;color:var(--gold);width:26px;text-align:center;flex-shrink:0}
+.dir-card .dir-info{flex:1;min-width:0}
+.dir-card .dir-title{font-weight:600;font-size:13px;margin-bottom:2px}
+.dir-card .dir-path{font-size:11px;color:var(--gray);font-family:monospace}
+
+@media (max-width:992px){
+  .footer-grid{grid-template-columns:1fr 1fr;gap:26px}
+  .about-hero .container{grid-template-columns:1fr;gap:26px}
+  .about-hero .about-image{font-size:90px}
+  .hero-image{display:none}
+  .hero{min-height:auto;padding:40px 0 60px}
+  .hero-content{max-width:100%}
+  .contact-grid{grid-template-columns:1fr;gap:26px}
+}
+@media (max-width:768px){
+  .nav-links{display:none;flex-direction:column;width:100%;gap:8px;padding:14px 0;border-top:1px solid rgba(255,255,255,.06)}
+  .nav-links.open{display:flex}
+  .mobile-toggle{display:block}
+  .nav-actions{margin-left:auto}
+  .watches-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+  .watch-card{padding:14px 12px 12px}
+  .watch-card .watch-name{font-size:12px}
+  .watch-card .watch-price{font-size:14px}
+  .cart-sidebar{width:100%;max-width:100%;right:-100%}
+  .footer-grid{grid-template-columns:1fr;gap:22px}
+  .hero h1{font-size:34px}
+  .container{padding:0 16px}
+  .payment-modal{padding:24px 18px}
+  .directory-grid{grid-template-columns:1fr}
+}
+@media (max-width:480px){
+  .watches-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .watch-card .watch-name{font-size:11px}
+  .watch-card .watch-price{font-size:13px}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <div class="logo" onclick="navigate('home')"><i class="fas fa-clock"></i> Americana <span>Timepieces</span></div>
+    <nav class="nav-links" id="navLinks">
+      <a onclick="navigate('home')" data-page="home">Home</a>
+      <a onclick="navigate('collection')" data-page="collection">Collection</a>
+      <a onclick="navigate('brands')" data-page="brands">Brands</a>
+      <a onclick="navigate('categories')" data-page="categories">Categories</a>
+      <a onclick="navigate('about')" data-page="about">About</a>
+      <a onclick="navigate('contact')" data-page="contact">Contact</a>
+      <a onclick="navigate('directory')" data-page="directory">All Pages</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="search-btn" onclick="navigate('directory')"><i class="fas fa-search"></i></button>
+      <button class="cart-btn" onclick="toggleCart()"><i class="fas fa-shopping-bag"></i><span class="cart-count" id="cartCount">0</span></button>
+      <button class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</header>
+
+<main id="app"></main>
+
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<aside class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header"><h2><i class="fas fa-shopping-bag" style="color:var(--gold);margin-right:8px"></i>Your Cart</h2><button class="close-cart" onclick="toggleCart()"><i class="fas fa-times"></i></button></div>
+  <div class="cart-items" id="cartItems"><div class="empty-cart"><i class="fas fa-box-open"></i><p>Your cart is empty.</p></div></div>
+  <div class="cart-footer">
+    <div class="cart-total"><span>Total</span><span class="amount" id="cartTotal">₦0</span></div>
+    <button class="btn btn-primary" id="checkoutBtn" onclick="openPayment()" disabled><i class="fas fa-lock"></i> Proceed to Checkout</button>
+  </div>
+</aside>
+
+<!-- PAYSTACK-ONLY CHECKOUT MODAL -->
+<div class="payment-overlay" id="paymentOverlay">
+  <div class="payment-modal">
+    <div class="pm-header">
+      <h2><i class="fas fa-shield-halved" style="color:var(--gold);margin-right:10px"></i>Secure Checkout</h2>
+      <button class="close-pm" onclick="closePayment()"><i class="fas fa-times"></i></button>
+    </div>
+
+    <div class="pm-paystack-logo">
+      <div class="ps-icon"><i class="fas fa-bolt"></i></div>
+      <div class="ps-text">
+        <div class="ps-title">Paystack Secure Payment</div>
+        <div class="ps-subtitle">Cards · Bank Transfer · USSD · QR · Mobile Money — all in one secure gateway</div>
+      </div>
+    </div>
+
+    <div class="pm-summary" id="pmSummary"></div>
+
+    <div class="pm-email-group">
+      <label>Your Email Address <span style="color:#e74c3c">*</span></label>
+      <input type="email" id="pmEmail" placeholder="you@example.com" oninput="validateEmail()" />
+      <div class="pm-email-error" id="pmEmailError">Please enter a valid email address</div>
+    </div>
+
+    <button class="pm-submit" id="pmSubmit" onclick="processPayment()" disabled>
+      <i class="fas fa-lock"></i> Pay Securely
+    </button>
+
+    <div class="pm-secure"><i class="fas fa-shield-check"></i> 256-bit SSL encrypted · PCI-DSS compliant</div>
+    <div class="pm-badges">
+      <span><i class="fas fa-cc-visa"></i> Visa</span>
+      <span><i class="fas fa-cc-mastercard"></i> Mastercard</span>
+      <span><i class="fas fa-credit-card"></i> Verve</span>
+      <span><i class="fas fa-university"></i> Bank</span>
+      <span><i class="fas fa-mobile-screen"></i> USSD</span>
+      <span><i class="fas fa-qrcode"></i> QR</span>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"><i class="fas fa-check-circle toast-icon"></i><span id="toastMessage">Added to cart!</span></div>
+
+<button class="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" id="scrollTop"><i class="fas fa-chevron-up"></i></button>
+
+<script>
+/* ============================================================
+   1. DATA
+   ============================================================ */
+const BRANDS=['Hamilton','Bulova','Timex','Fossil','Movado','Shinola','RGM','Weiss','Vortic','Detroit Watch Co.','Bedford Watch Co.','Liberty','Heritage','American Classic','Patriot','Independence','Constitution','Freedom','Eagle','Lincoln'];
+const MODELS=['Khaki Field','Precisionist','Expedition','Grant','Bold','Eco-Drive','Runwell','Model 801','Standard Issue','Model 1','M-1','Aviator','Classic','Eagle','Chronograph','Automatic','Diver','Pilot','Marine','Heritage','Vintage','Sport','Luxury','Elite','Signature','Reserve','Commander','Admiral','Senator','Statesman','Liberty Bell','Constitution','Declaration','Federal','Union','Capitol','White House','Lincoln','Washington','Jefferson','Franklin','Madison','Monroe','Adams','Jackson','Van Buren','Harrison','Tyler','Polk','Roosevelt','Truman','Kennedy','Reagan'];
+const FEATURES=['Swiss movement','Sapphire crystal','Stainless steel case','Water resistant 100m','Chronograph','Automatic winding','Power reserve 80h','Date window','Luminous hands','Exhibition caseback','Screw-down crown','Ceramic bezel','Anti-reflective coating','Deployment clasp','Genuine leather strap','Titanium case','Diamond accents','GMT function','Moon phase','Perpetual calendar'];
+const CATEGORIES=[
+  {id:'luxury',name:'Luxury',icon:'fa-gem',desc:'Handcrafted premium timepieces'},
+  {id:'sport',name:'Sport',icon:'fa-dumbbell',desc:'Built for active lifestyles'},
+  {id:'diver',name:'Diver',icon:'fa-water',desc:'Water-resistant dive watches'},
+  {id:'pilot',name:'Pilot',icon:'fa-plane',desc:'Aviation-inspired precision'},
+  {id:'dress',name:'Dress',icon:'fa-user-tie',desc:'Elegant formal wear'},
+  {id:'chronograph',name:'Chronograph',icon:'fa-stopwatch',desc:'Precision timing complications'},
+  {id:'automatic',name:'Automatic',icon:'fa-cog',desc:'Self-winding mechanical'},
+  {id:'quartz',name:'Quartz',icon:'fa-bolt',desc:'Battery-powered accuracy'},
+  {id:'vintage',name:'Vintage',icon:'fa-history',desc:'Timeless retro designs'},
+  {id:'modern',name:'Modern',icon:'fa-rocket',desc:'Contemporary innovation'},
+  {id:'military',name:'Military',icon:'fa-shield-halved',desc:'Battle-tested toughness'},
+  {id:'aviator',name:'Aviator',icon:'fa-fighter-jet',desc:'Cockpit-ready instruments'},
+  {id:'racing',name:'Racing',icon:'fa-flag-checkered',desc:'Motorsport heritage'},
+  {id:'casual',name:'Casual',icon:'fa-tshirt',desc:'Everyday wear'},
+  {id:'formal',name:'Formal',icon:'fa-star',desc:'Black-tie excellence'}
+];
+
+/* ============================================================
+   VERIFIED WATCH-ONLY IMAGES (Unsplash free-to-use)
+   All URLs tested to show watches or people wearing watches
+   ============================================================ */
+const WATCH_IMAGES = [
+  'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1594534475808-b18fc33b045e?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1622434641406-a158123450f9?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1620625515032-6ed0c1790c75?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1548171915-e79a380a2a4b?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1533139502658-0198f920d8e8?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1508057198894-247b23fe5ade?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1526045431048-f857369baa09?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1629581677399-cc45e1fd4a3b?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1585123334904-845d60e97b29?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1594576722512-582bcd46fba3?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1627293509201-cd0c780043e6?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1495856458515-0637185db551?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1594576722512-582bcd46fba3?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1627225793904-a2f900a6e4cf?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1533139502658-0198f920d8e8?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1620625515032-6ed0c1790c75?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1526045431048-f857369baa09?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1548171915-e79a380a2a4b?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1622434641406-a158123450f9?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1594534475808-b18fc33b045e?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1508057198894-247b23fe5ade?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1585123334904-845d60e97b29?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1627293509201-cd0c780043e6?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1495856458515-0637185db551?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1627225793904-a2f900a6e4cf?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1629581677399-cc45e1fd4a3b?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=400&h=400&fit=crop',
+  'https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=400&h=400&fit=crop'
+];
+
+/* ============================================================
+   2. GENERATE 100 WATCHES
+   ============================================================ */
+function rnd(a){return a[Math.floor(Math.random()*a.length)]}
+function rndInt(a,b){return Math.floor(Math.random()*(b-a+1))+a}
+const WATCHES=[];
+const usedNames=new Set();
+for(let i=0;i<100;i++){
+  let brand=rnd(BRANDS),model=rnd(MODELS),name=`${brand} ${model}`,tries=0;
+  while(usedNames.has(name)&&tries<40){brand=rnd(BRANDS);model=rnd(MODELS);name=`${brand} ${model}`;tries++}
+  usedNames.add(name);
+  const price=rndInt(15000,120000),oldPrice=price+rndInt(5000,40000);
+  const inStock=Math.random()>.1;
+  const rating=+(3.5+Math.random()*1.5).toFixed(1);
+  const reviews=rndInt(12,280);
+  const category=CATEGORIES[i%CATEGORIES.length].id;
+  const feats=[...FEATURES].sort(()=>Math.random()-.5).slice(0,3);
+  WATCHES.push({
+    id:i+1,name,brand,model,category,price,oldPrice,inStock,rating,reviews,features:feats,
+    imageUrl:WATCH_IMAGES[i%WATCH_IMAGES.length],
+    icon:i%5===0?'fa-clock':i%5===1?'fa-stopwatch':i%5===2?'fa-hourglass-half':i%5===3?'fa-clock':'fa-stopwatch'
+  });
+}
+
+/* ============================================================
+   3. PAGE REGISTRY
+   ============================================================ */
+const PAGES={};
+PAGES.home={title:'Home',icon:'fa-home',group:'Main',render:renderHome};
+PAGES.about={title:'About Us',icon:'fa-info-circle',group:'Main',render:renderAbout};
+PAGES.contact={title:'Contact',icon:'fa-envelope',group:'Main',render:renderContact};
+PAGES.collection={title:'Collection',icon:'fa-clock',group:'Main',render:()=>renderCollection('all','All Watches')};
+PAGES.brands={title:'All Brands',icon:'fa-tags',group:'Main',render:renderBrands};
+PAGES.categories={title:'All Categories',icon:'fa-layer-group',group:'Main',render:renderCategories};
+PAGES.directory={title:'All Pages',icon:'fa-sitemap',group:'Main',render:renderDirectory};
+PAGES.sitemap={title:'Sitemap',icon:'fa-sitemap',group:'Main',render:renderDirectory};
+
+BRANDS.forEach(b=>{PAGES['brand-'+b.toLowerCase().replace(/[^a-z0-9]/g,'-')]={title:b,icon:'fa-tag',group:'Brands',render:()=>renderCollection('brand',b)}});
+CATEGORIES.forEach(c=>{PAGES['cat-'+c.id]={title:c.name,icon:c.icon,group:'Categories',render:()=>renderCollection('category',c.id)}});
+
+const COLLECTIONS=[
+  {id:'new-arrivals',name:'New Arrivals'},{id:'best-sellers',name:'Best Sellers'},
+  {id:'sale',name:'On Sale'},{id:'limited',name:'Limited Edition'},
+  {id:'trending',name:'Trending Now'},{id:'under-50k',name:'Under ₦50,000'},
+  {id:'under-100k',name:'Under ₦100,000'},{id:'premium',name:'Premium Picks'},
+  {id:'gift-guide',name:'Gift Guide'},{id:'editor-picks',name:"Editor's Picks"},
+  {id:'staff-picks',name:'Staff Picks'},{id:'top-rated',name:'Top Rated'},
+  {id:'featured',name:'Featured'},{id:'vintage-collection',name:'Vintage Collection'},
+  {id:'modern-collection',name:'Modern Collection'},{id:'luxury-collection',name:'Luxury Collection'},
+  {id:'sport-collection',name:'Sport Collection'},{id:'heritage-collection',name:'Heritage Collection'},
+  {id:'classic-collection',name:'Classic Collection'},{id:'exclusive',name:'Exclusive'}
+];
+COLLECTIONS.forEach(c=>{PAGES['col-'+c.id]={title:c.name,icon:'fa-star',group:'Collections',render:()=>renderCollection('collection',c.id)}});
+
+const SERVICES=[
+  {id:'shipping',title:'Shipping Info',icon:'fa-truck'},{id:'returns',title:'Returns & Refunds',icon:'fa-undo'},
+  {id:'warranty',title:'Warranty',icon:'fa-shield-alt'},{id:'faq',title:'FAQ',icon:'fa-question-circle'},
+  {id:'care-guide',title:'Watch Care Guide',icon:'fa-hand-sparkles'},{id:'sizing',title:'Sizing Guide',icon:'fa-ruler'},
+  {id:'authenticity',title:'Authenticity',icon:'fa-certificate'},{id:'payment-guide',title:'Payment Guide',icon:'fa-credit-card'},
+  {id:'track-order',title:'Track Order',icon:'fa-map-marker-alt'},{id:'store-locator',title:'Store Locator',icon:'fa-store'},
+  {id:'gift-cards',title:'Gift Cards',icon:'fa-gift'},{id:'newsletter',title:'Newsletter',icon:'fa-envelope-open-text'},
+  {id:'careers',title:'Careers',icon:'fa-briefcase'},{id:'press',title:'Press',icon:'fa-newspaper'},
+  {id:'sustainability',title:'Sustainability',icon:'fa-leaf'},{id:'privacy',title:'Privacy Policy',icon:'fa-user-shield'},
+  {id:'terms',title:'Terms of Service',icon:'fa-file-contract'},{id:'cookies',title:'Cookie Policy',icon:'fa-cookie-bite'},
+  {id:'accessibility',title:'Accessibility',icon:'fa-universal-access'},{id:'partners',title:'Partners',icon:'fa-handshake'}
+];
+SERVICES.forEach(s=>{PAGES['svc-'+s.id]={title:s.title,icon:s.icon,group:'Services',render:()=>renderService(s)}});
+
+const ARTICLES=[
+  {id:'a1',title:'The History of American Watchmaking'},{id:'a2',title:'How to Choose Your First Luxury Watch'},
+  {id:'a3',title:'Automatic vs Quartz: Which is Right for You?'},{id:'a4',title:'Top 10 Dive Watches of 2026'},
+  {id:'a5',title:'Watch Maintenance: A Complete Guide'},{id:'a6',title:'The Rise of American Microbrands'},
+  {id:'a7',title:'Understanding Watch Movements'},{id:'a8',title:'Vintage Watch Buying Guide'},
+  {id:'a9',title:'Water Resistance Explained'},{id:'a10',title:'The Art of Watch Collecting'},
+  {id:'a11',title:'Chronograph Complications 101'},{id:'a12',title:'Sapphire vs Mineral Crystal'},
+  {id:'a13',title:'Best Watches for Small Wrists'},{id:'a14',title:'Watch Straps: A Buying Guide'},
+  {id:'a15',title:'Military Watches Through History'},{id:'a16',title:'Pilot Watches: Form Meets Function'},
+  {id:'a17',title:'Investment Watches: Do They Hold Value?'},{id:'a18',title:'The Anatomy of a Watch'},
+  {id:'a19',title:'Watch Photography Tips'},{id:'a20',title:'Iconic Watches in Film'}
+];
+ARTICLES.forEach(a=>{PAGES['blog-'+a.id]={title:a.title,icon:'fa-book',group:'Editorial',render:()=>renderArticle(a)}});
+
+const PAGE_COUNT=Object.keys(PAGES).length;
+
+/* ============================================================
+   4. STATE
+   ============================================================ */
+let cart=JSON.parse(localStorage.getItem('americana_cart')||'[]');
+let collectionState={mode:'all',value:'all',page:1};
+
+const $=(s)=>document.querySelector(s);
+const $$=(s)=>document.querySelectorAll(s);
+const formatNaira=(n)=>'₦'+n.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g,',');
+const slugify=(s)=>s.toLowerCase().replace(/[^a-z0-9]/g,'-');
+
+/* ============================================================
+   5. WATCH CARD
+   ============================================================ */
+function watchCard(w){
+  const inStock=w.inStock!==false;
+  const img=`<img src="${w.imageUrl}" alt="${w.name}" loading="lazy" onerror="this.classList.add('error');this.style.display='none';this.nextElementSibling.style.display='flex';"/>
+    <div class="fallback-icon" style="display:none"><i class="fas ${w.icon}"></i><span>${w.brand}</span></div>`;
+  return `<div class="watch-card" data-id="${w.id}">
+    ${!inStock?'<div class="badge sold-out">Sold Out</div>':''}
+    ${inStock&&w.id%7===0?'<div class="badge">Best Seller</div>':''}
+    ${inStock&&w.id%13===0?'<div class="badge">New</div>':''}
+    <div class="watch-image" onclick="navigate('brand-'+slugify('${w.brand}'))">${img}</div>
+    <div class="watch-brand">${w.brand}</div>
+    <div class="watch-name">${w.name}</div>
+    <div class="watch-rating"><span class="stars">★ ${w.rating}</span><span>(${w.reviews})</span></div>
+    <div class="watch-price">${formatNaira(w.price)}${w.oldPrice?`<span class="old">${formatNaira(w.oldPrice)}</span>`:''}</div>
+    <div class="watch-actions">
+      ${inStock?`<button class="btn btn-primary btn-sm" onclick="addToCart(${w.id})"><i class="fas fa-plus"></i> Add</button>
+      <button class="btn btn-gold-outline btn-sm" onclick="addToCart(${w.id})"><i class="fas fa-shopping-bag"></i></button>`
+      :`<button class="btn btn-secondary btn-sm" disabled style="opacity:.4"><i class="fas fa-times"></i> Unavailable</button>`}
+    </div>
+  </div>`;
+}
+
+/* ============================================================
+   6. PAGE RENDERERS
+   ============================================================ */
+function renderHome(){
+  return `<section class="hero"><div class="container hero-content">
+    <div class="hero-badge"><i class="fas fa-star"></i> Since 1923 — American Craftsmanship</div>
+    <h1>Timeless <br/><span class="highlight">American</span> Elegance</h1>
+    <p>Discover 100 precision-crafted timepieces from America's finest watchmakers. Heritage meets innovation in every tick.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" onclick="navigate('collection')"><i class="fas fa-eye"></i> Explore Collection</a>
+      <a class="btn btn-secondary" onclick="navigate('about')"><i class="fas fa-info-circle"></i> Our Story</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="num">100</div><div class="label">Watches</div></div>
+      <div class="stat"><div class="num">20+</div><div class="label">Brands</div></div>
+      <div class="stat"><div class="num">${PAGE_COUNT}</div><div class="label">Pages</div></div>
+      <div class="stat"><div class="num">1</div><div class="label">Secure Gateway</div></div>
+    </div></div><div class="hero-image"><i class="fas fa-clock"></i></div></section>
+  <div class="container">
+    <div class="section-header"><div><h2 class="section-title">Featured <span class="gold">Timepieces</span></h2><p class="section-subtitle">Handpicked from our collection</p></div>
+      <a class="btn btn-gold-outline btn-sm" onclick="navigate('collection')">View All <i class="fas fa-arrow-right"></i></a></div>
+    <div class="watches-grid">${WATCHES.slice(0,8).map(watchCard).join('')}</div>
+    <div class="section-header" style="margin-top:50px"><div><h2 class="section-title">Trending <span class="gold">Now</span></h2><p class="section-subtitle">What customers love this week</p></div>
+      <a class="btn btn-gold-outline btn-sm" onclick="navigate('col-trending')">See More <i class="fas fa-arrow-right"></i></a></div>
+    <div class="watches-grid">${WATCHES.slice(20,24).map(watchCard).join('')}</div>
+    <div class="section-header" style="margin-top:50px"><div><h2 class="section-title">Shop by <span class="gold">Brand</span></h2><p class="section-subtitle">20 iconic American watchmakers</p></div>
+      <a class="btn btn-gold-outline btn-sm" onclick="navigate('brands')">All Brands <i class="fas fa-arrow-right"></i></a></div>
+    <div class="brand-grid">${BRANDS.slice(0,8).map(b=>`<div class="brand-card" onclick="navigate('brand-${slugify(b)}')"><i class="fas fa-tag"></i><div class="brand-name">${b}</div><div class="brand-count">View Collection</div></div>`).join('')}</div>
+    <div class="section-header" style="margin-top:50px"><div><h2 class="section-title">Shop by <span class="gold">Category</span></h2><p class="section-subtitle">Find the perfect watch for every occasion</p></div>
+      <a class="btn btn-gold-outline btn-sm" onclick="navigate('categories')">All Categories <i class="fas fa-arrow-right"></i></a></div>
+    <div class="category-grid">${CATEGORIES.slice(0,6).map(c=>`<div class="category-card" onclick="navigate('cat-${c.id}')"><i class="fas ${c.icon}"></i><h3>${c.name}</h3><p>${c.desc}</p></div>`).join('')}</div>
+  </div>${renderFooter()}`;
+}
+
+function renderAbout(){
+  return `<div class="about-hero"><div class="container">
+    <div class="about-text">
+      <div class="hero-badge"><i class="fas fa-flag-usa"></i> Proudly American</div>
+      <h1>Crafting <span style="color:var(--gold)">Legacy</span> Since 1923</h1>
+      <p>Americana Timepieces was born from a passion for precision, heritage, and the indomitable American spirit. We curate and craft timepieces that honor the past while embracing the future.</p>
+      <p>From the bustling streets of New York to the quiet workshops of Michigan, our 100 watches represent the very best of American watchmaking.</p>
+      <a class="btn btn-primary" onclick="navigate('collection')"><i class="fas fa-clock"></i> Explore Collection</a>
+    </div>
+    <div class="about-image"><i class="fas fa-clock"></i></div>
+  </div></div>
+  <div class="container">
+    <h2 class="section-title" style="text-align:center">Our <span class="gold">Values</span></h2>
+    <p class="section-subtitle" style="text-align:center;margin:0 auto 40px">What makes Americana Timepieces different</p>
+    <div class="about-values">
+      <div class="value-card"><i class="fas fa-gem"></i><h3>Heritage Craft</h3><p>Each watch is built with techniques passed down through generations of American artisans.</p></div>
+      <div class="value-card"><i class="fas fa-flag-usa"></i><h3>Proudly American</h3><p>100% American brands, American names, and American spirit in every timepiece.</p></div>
+      <div class="value-card"><i class="fas fa-shield-alt"></i><h3>Lifetime Warranty</h3><p>We stand behind every watch with a lifetime warranty and white-glove service.</p></div>
+      <div class="value-card"><i class="fas fa-handshake"></i><h3>Fair Trade</h3><p>We partner with American workshops that pay fair wages and support local communities.</p></div>
+    </div>
+    <div style="background:var(--bg-card);border-radius:var(--radius);padding:36px;text-align:center;border:1px solid rgba(201,168,76,.06);margin:36px 0">
+      <h3 style="font-family:var(--font-display);font-size:26px;margin-bottom:12px"><span style="color:var(--gold)">100</span> American Watches. <span style="color:var(--gold)">1</span> Secure Gateway. <span style="color:var(--gold)">1</span> Passion.</h3>
+      <p style="color:var(--gray-light);max-width:520px;margin:0 auto 18px;font-size:14px">Seamless checkout powered by Paystack — cards, bank transfer, USSD, and more in one place.</p>
+      <a class="btn btn-primary" onclick="navigate('collection')"><i class="fas fa-shopping-bag"></i> Start Shopping</a>
+    </div>
+  </div>${renderFooter()}`;
+}
+
+function renderContact(){
+  return `<div class="page-hero"><div class="container">
+    <div class="breadcrumb"><a onclick="navigate('home')">Home</a><i class="fas fa-chevron-right"></i><span>Contact</span></div>
+    <h1>Get in <span class="gold">Touch</span></h1><p>Reach out and our team will respond within 24 hours.</p>
+  </div></div>
+  <div class="container contact-grid" style="padding-bottom:60px">
+    <div class="contact-info">
+      <div class="info-card"><i class="fas fa-map-marker-alt"></i><h4>Visit Us</h4><p>123 Fifth Avenue<br/>New York, NY 10010<br/>United States</p></div>
+      <div class="info-card"><i class="fas fa-phone"></i><h4>Call Us</h4><p>+1 (800) 555-0199<br/>Mon-Fri, 9am-6pm EST</p></div>
+      <div class="info-card"><i class="fas fa-envelope"></i><h4>Email Us</h4><p>hello@americanatime.com<br/>support@americanatime.com</p></div>
+    </div>
+    <form class="contact-form" onsubmit="event.preventDefault();showToast('Message sent!')">
+      <h3>Send a Message</h3>
+      <div class="form-group"><label>Full Name</label><input type="text" required placeholder="John Doe"/></div>
+      <div class="form-group"><label>Email Address</label><input type="email" required placeholder="you@example.com"/></div>
+      <div class="form-group"><label>Subject</label><select><option>General Inquiry</option><option>Order Support</option><option>Warranty</option><option>Wholesale</option></select></div>
+      <div class="form-group"><label>Message</label><textarea required placeholder="How can we help?"></textarea></div>
+      <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center"><i class="fas fa-paper-plane"></i> Send Message</button>
+    </form>
+  </div>${renderFooter()}`;
+}
+
+function renderCollection(mode,value){collectionState={mode,value,page:1};return renderCollectionPage()}
+
+function renderCollectionPage(){
+  const {mode,value,page}=collectionState;
+  let filtered=WATCHES,title='Collection',subtitle='Explore our full range';
+  if(mode==='brand'){filtered=WATCHES.filter(w=>w.brand===value);title=value;subtitle=`All watches from ${value}`}
+  else if(mode==='category'){const c=CATEGORIES.find(c=>c.id===value);filtered=WATCHES.filter(w=>w.category===value);title=c?c.name:'Category';subtitle=c?c.desc:''}
+  else if(mode==='collection'){const c=COLLECTIONS.find(c=>c.id===value);title=c?c.name:'Collection';subtitle='Curated selection';filtered=getFiltered('collection',value)}
+  const perPage=12,total=filtered.length,totalPages=Math.ceil(total/perPage)||1;
+  const p=Math.min(page,totalPages);
+  const items=filtered.slice((p-1)*perPage,p*perPage);
+  const start=total?(p-1)*perPage+1:0,end=Math.min(start+items.length-1,total);
+  return `<div class="page-hero"><div class="container">
+    <div class="breadcrumb"><a onclick="navigate('home')">Home</a><i class="fas fa-chevron-right"></i><span>${title}</span></div>
+    <h1>${title}</h1><p>${subtitle}</p>
+  </div></div>
+  <div class="container">
+    <div style="margin-bottom:20px;color:var(--gray);font-size:13px">Showing ${start}–${end} of ${total} watches</div>
+    <div class="watches-grid">${items.length?items.map(watchCard).join(''):'<p style="color:var(--gray);grid-column:1/-1;text-align:center;padding:40px">No watches found.</p>'}</div>
+    ${totalPages>1?renderPagination(p,totalPages):''}
+  </div>${renderFooter()}`;
+}
+
+function renderPagination(p,totalPages){
+  let html=`<div class="pagination">`;
+  html+=`<button ${p===1?'disabled style="opacity:.3"':''} onclick="gotoPage(${p-1})"><i class="fas fa-chevron-left"></i></button>`;
+  for(let i=1;i<=totalPages;i++){
+    if(i===1||i===totalPages||Math.abs(i-p)<=1)html+=`<button class="${i===p?'active':''}" onclick="gotoPage(${i})">${i}</button>`;
+    else if(Math.abs(i-p)===2)html+=`<button style="pointer-events:none;color:var(--gray-dark)">…</button>`;
+  }
+  html+=`<button ${p===totalPages?'disabled style="opacity:.3"':''} onclick="gotoPage(${p+1})"><i class="fas fa-chevron-right"></i></button></div>`;
+  return html;
+}
+
+function gotoPage(p){
+  const {mode,value}=collectionState;
+  const filtered=getFiltered(mode,value);
+  const totalPages=Math.ceil(filtered.length/12)||1;
+  if(p<1||p>totalPages)return;
+  collectionState.page=p;
+  document.getElementById('app').innerHTML=renderCollectionPage();
+  window.scrollTo({top:300,behavior:'smooth'});
+}
+
+function getFiltered(mode,value){
+  if(mode==='brand')return WATCHES.filter(w=>w.brand===value);
+  if(mode==='category')return WATCHES.filter(w=>w.category===value);
+  if(mode==='all')return WATCHES;
+  if(value==='new-arrivals')return [...WATCHES].sort((a,b)=>b.id-a.id).slice(0,24);
+  if(value==='best-sellers')return [...WATCHES].sort((a,b)=>b.reviews-a.reviews).slice(0,24);
+  if(value==='sale')return WATCHES.filter(w=>w.oldPrice>w.price+10000);
+  if(value==='limited')return WATCHES.filter(w=>w.id%13===0);
+  if(value==='trending')return WATCHES.slice(20,44);
+  if(value==='under-50k')return WATCHES.filter(w=>w.price<50000);
+  if(value==='under-100k')return WATCHES.filter(w=>w.price<100000);
+  if(value==='premium')return WATCHES.filter(w=>w.price>80000);
+  if(value==='gift-guide')return WATCHES.filter(w=>w.price<80000).slice(0,24);
+  if(value==='editor-picks')return WATCHES.slice(5,29);
+  if(value==='staff-picks')return WATCHES.slice(15,39);
+  if(value==='top-rated')return [...WATCHES].sort((a,b)=>b.rating-a.rating).slice(0,24);
+  if(value==='featured')return WATCHES.slice(0,24);
+  if(value==='vintage-collection')return WATCHES.filter(w=>w.category==='vintage');
+  if(value==='modern-collection')return WATCHES.filter(w=>w.category==='modern');
+  if(value==='luxury-collection')return WATCHES.filter(w=>w.category==='luxury');
+  if(value==='sport-collection')return WATCHES.filter(w=>w.category==='sport');
+  if(value==='heritage-collection')return WATCHES.filter(w=>w.brand==='Heritage');
+  if(value==='classic-collection')return WATCHES.filter(w=>w.brand==='American Classic');
+  if(value==='exclusive')return WATCHES.filter(w=>w.price>100000);
+  return WATCHES;
+}
+
+function renderBrands(){
+  return `<div class="page-hero"><div class="container">
+    <div class="breadcrumb"><a onclick="navigate('home')">Home</a><i class="fas fa-chevron-right"></i><span>Brands</span></div>
+    <h1>Our <span class="gold">Brands</span></h1><p>20 iconic American watchmakers.</p>
+  </div></div>
+  <div class="container" style="padding-bottom:60px"><div class="brand-grid">
+    ${BRANDS.map(b=>{const c=WATCHES.filter(w=>w.brand===b).length;return `<div class="brand-card" onclick="navigate('brand-${slugify(b)}')"><i class="fas fa-tag"></i><div class="brand-name">${b}</div><div class="brand-count">${c} Watches</div></div>`}).join('')}
+  </div></div>${renderFooter()}`;
+}
+
+function renderCategories(){
+  return `<div class="page-hero"><div class="container">
+    <div class="breadcrumb"><a onclick="navigate('home')">Home</a><i class="fas fa-chevron-right"></i><span>Categories</span></div>
+    <h1>Watch <span class="gold">Categories</span></h1><p>Find the perfect watch for every style.</p>
+  </div></div>
+  <div class="container" style="padding-bottom:60px"><div class="category-grid">
+    ${CATEGORIES.map(c=>{const cnt=WATCHES.filter(w=>w.category===c.id).length;return `<div class="category-card" onclick="navigate('cat-${c.id}')"><i class="fas ${c.icon}"></i><h3>${c.name}</h3><p>${cnt} watches · ${c.desc}</p></div>`}).join('')}
+  </div></div>${renderFooter()}`;
+}
+
+function renderDirectory(){
+  const groups={};
+  Object.entries(PAGES).forEach(([k,p])=>{if(!groups[p.group])groups[p.group]=[];groups[p.group].push({key:k,title:p.title,icon:p.icon})});
+  return `<div class="page-hero"><div class="container">
+    <div class="breadcrumb"><a onclick="navigate('home')">Home</a><i class="fas fa-chevron-right"></i><span>All Pages</span></div>
+    <h1>All <span class="gold">Pages</span> (${PAGE_COUNT})</h1><p>Complete directory.</p>
+  </div></div>
+  <div class="container" style="padding-bottom:60px">
+    ${Object.entries(groups).map(([g,items])=>`<h2 class="section-title" style="font-size:20px;margin:28px 0 14px">${g} <span style="color:var(--gold);font-size:14px">(${items.length})</span></h2>
+      <div class="directory-grid">${items.map(i=>`<div class="dir-card" onclick="navigate('${i.key}')"><i class="fas ${i.icon}"></i><div class="dir-info"><div class="dir-title">${i.title}</div><div class="dir-path">/${i.key}</div></div></div>`).join('')}</div>`).join('')}
+  </div>${renderFooter()}`;
+}
+
+function renderService(s){
+  const content={
+    shipping:`<h2>Shipping Information</h2><p>We offer fast and reliable shipping across Nigeria and worldwide.</p><h3>Domestic Shipping (Nigeria)</h3><ul><li><strong>Standard:</strong> 3-5 business days — ₦2,500</li><li><strong>Express:</strong> 1-2 business days — ₦5,000</li><li><strong>Free shipping</strong> on orders above ₦100,000</li></ul><h3>International Shipping</h3><ul><li><strong>Africa:</strong> 5-10 business days — ₦15,000</li><li><strong>Europe/Americas:</strong> 7-14 business days — ₦25,000</li><li><strong>Asia/Middle East:</strong> 7-14 business days — ₦25,000</li></ul>`,
+    returns:`<h2>Returns & Refunds</h2><p>Your satisfaction is our priority. We offer a hassle-free 30-day return policy.</p><ul><li>Returns accepted within 30 days of delivery</li><li>Items must be unworn and in original packaging</li><li>Refunds processed within 5-7 business days</li></ul>`,
+    warranty:`<h2>Lifetime Warranty</h2><p>Every watch is covered by our comprehensive lifetime warranty against manufacturing defects.</p><h3>What's Covered</h3><ul><li>Movement and mechanical failures</li><li>Case and crown defects</li><li>Crystal and dial defects</li></ul>`,
+    faq:`<h2>Frequently Asked Questions</h2>${[
+      ['Are your watches authentic?','Yes — every watch is 100% authentic and sourced directly from authorized American manufacturers.'],
+      ['What payment methods do you accept?','We use Paystack — one secure gateway that accepts cards, bank transfers, USSD, QR codes, and mobile money.'],
+      ['How long does delivery take?','Domestic delivery takes 1-5 business days. International shipping takes 5-14 business days.'],
+      ['Is there a warranty?','All watches come with a lifetime warranty against manufacturing defects.'],
+      ['How do I track my order?','You will receive a tracking number by email once your order ships.']
+    ].map(([q,a])=>`<div class="faq-item" onclick="this.classList.toggle('open')"><div class="faq-question">${q}<i class="fas fa-chevron-down"></i></div><div class="faq-answer"><p>${a}</p></div></div>`).join('')}`,
+    'care-guide':`<h2>Watch Care Guide</h2><p>Keep your timepiece looking its best.</p><ul><li>Wipe with a soft microfiber cloth after each wear</li><li>Avoid extreme temperatures</li><li>Keep away from strong magnetic fields</li><li>Mechanical watches need servicing every 3-5 years</li></ul>`,
+    sizing:`<h2>Sizing Guide</h2><ul><li><strong>Small wrists (14-16cm):</strong> 34-38mm case</li><li><strong>Medium wrists (16-18cm):</strong> 38-42mm case</li><li><strong>Large wrists (18-20cm):</strong> 42-46mm case</li><li><strong>Extra large (20cm+):</strong> 46mm+ case</li></ul>`,
+    authenticity:`<h2>Authenticity Guarantee</h2><p>Every watch is 100% authentic and comes with a certificate of authenticity.</p><ul><li>Sourced directly from authorized manufacturers</li><li>Each includes serial number and certificate</li><li>Money-back guarantee if authenticity is questioned</li></ul>`,
+    'payment-guide':`<h2>Payment Guide</h2><p>We use <strong>Paystack</strong> — Nigeria's leading secure payment gateway — so you can pay your way.</p><h3>Accepted via Paystack</h3><ul><li><strong>Cards:</strong> Visa, Mastercard, Verve</li><li><strong>Bank Transfer:</strong> Direct transfer from any Nigerian bank</li><li><strong>USSD:</strong> Dial a code from your phone</li><li><strong>QR Code:</strong> Scan with your banking app</li><li><strong>Mobile Money:</strong> Pay with your wallet</li></ul><div class="info-box"><strong>Secure:</strong> All transactions are encrypted and PCI-DSS compliant. We never store your card details.</div>`,
+    'track-order':`<h2>Track Your Order</h2><p>Enter your order number and email to track your shipment.</p><div class="form-group"><label>Order Number</label><input type="text" placeholder="e.g., AMER-2026-001234"/></div><div class="form-group"><label>Email Address</label><input type="email" placeholder="you@example.com"/></div><button class="btn btn-primary" onclick="showToast('Order status: In transit — 2 days to delivery.')"><i class="fas fa-search"></i> Track Order</button>`,
+    'store-locator':`<h2>Store Locator</h2><h3>New York Flagship</h3><p>123 Fifth Avenue, New York, NY 10010</p><h3>Lagos Showroom</h3><p>45 Adeola Odeku Street, Victoria Island, Lagos</p><h3>Abuja Boutique</h3><p>12 Aminu Kano Crescent, Wuse II, Abuja</p>`,
+    'gift-cards':`<h2>Gift Cards</h2><p>Give the gift of timeless American craftsmanship.</p><ul><li>₦25,000 · ₦50,000 · ₦100,000 · ₦200,000 · ₦500,000</li><li>Delivered instantly by email</li><li>Valid for 12 months</li></ul>`,
+    newsletter:`<h2>Newsletter</h2><p>Subscribe for exclusive offers and new arrivals.</p><div class="form-group"><label>Email Address</label><input type="email" placeholder="you@example.com"/></div><button class="btn btn-primary" onclick="showToast('Subscribed!')"><i class="fas fa-envelope"></i> Subscribe</button>`,
+    careers:`<h2>Careers</h2><p>Join our team of passionate watchmakers and designers.</p><ul><li><strong>Senior Watchmaker</strong> — New York</li><li><strong>Customer Experience Lead</strong> — Remote</li><li><strong>Product Photographer</strong> — Los Angeles</li><li><strong>E-commerce Manager</strong> — Remote</li></ul>`,
+    press:`<h2>Press & Media</h2><p>For press inquiries, contact press@americanatime.com.</p><h3>Recent Coverage</h3><ul><li><em>Time Magazine</em> — "The Resurgence of American Watchmaking"</li><li><em>GQ</em> — "Americana Timepieces: A New Classic"</li></ul>`,
+    sustainability:`<h2>Sustainability</h2><p>We are committed to ethical sourcing and environmental responsibility.</p><ul><li>100% recycled packaging by 2027</li><li>Carbon-neutral shipping</li><li>Ethically sourced materials</li><li>Fair wages for artisans</li></ul>`,
+    privacy:`<h2>Privacy Policy</h2><p>Last updated: January 2026</p><p>We take your privacy seriously. This policy explains how we collect and protect your information.</p><h3>Information We Collect</h3><ul><li>Name, email, phone</li><li>Shipping and billing addresses</li><li>Encrypted payment information (via Paystack)</li></ul><h3>Your Rights</h3><ul><li>Access your data</li><li>Request deletion</li><li>Opt out of marketing</li></ul>`,
+    terms:`<h2>Terms of Service</h2><p>By using our website, you agree to these terms.</p><ul><li>You must be 18+ to purchase</li><li>All prices are in Nigerian Naira</li><li>We reserve the right to cancel orders</li></ul>`,
+    cookies:`<h2>Cookie Policy</h2><p>We use cookies to enhance your experience.</p><ul><li><strong>Essential:</strong> Required for functionality</li><li><strong>Analytics:</strong> Usage insights</li><li><strong>Marketing:</strong> Personalised ads</li></ul>`,
+    accessibility:`<h2>Accessibility</h2><p>We are committed to making our website accessible to everyone.</p><ul><li>WCAG 2.1 AA compliance</li><li>Keyboard navigation support</li><li>Screen reader compatibility</li></ul>`,
+    partners:`<h2>Our Partners</h2><h3>Authorized Retailers</h3><ul><li>Macy's · Nordstrom · Jared · WatchStation</li></ul><h3>Payment Partner</h3><ul><li>Paystack — Nigeria's leading payment gateway</li></ul>`
+  };
+  return `<div class="page-hero"><div class="container">
+    <div class="breadcrumb"><a onclick="navigate('home')">Home</a><i class="fas fa-chevron-right"></i><span>${s.title}</span></div>
+    <h1>${s.title}</h1><p>Americana Timepieces — Premium American watches.</p>
+  </div></div>
+  <div class="container content-page" style="padding-bottom:60px">${content[s.id]||`<h2>${s.title}</h2><p>Content coming soon.</p>`}</div>${renderFooter()}`;
+}
+
+function renderArticle(a){
+  const paras=[
+    `At Americana Timepieces, we believe understanding the rich history and intricate mechanics of watches enriches the experience of owning one.`,
+    `American watchmaking has a storied tradition dating back to the 18th century. From colonial pocket watches to precision-engineered masterpieces of today, the United States has been at the forefront of horological innovation.`,
+    `When selecting a timepiece, consider movement type, case size, water resistance, and brand heritage. Each element contributes to the watch's character and value.`,
+    `Modern American watchmakers blend traditional craftsmanship with cutting-edge technology, producing timepieces that rival the finest Swiss manufacturers.`,
+    `Whether you're a seasoned collector or a first-time buyer, investing in a quality timepiece is about expressing your personality and passing down a legacy.`
+  ];
+  return `<div class="page-hero"><div class="container">
+    <div class="breadcrumb"><a onclick="navigate('home')">Home</a><i class="fas fa-chevron-right"></i><span>Editorial</span><i class="fas fa-chevron-right"></i><span>${a.title}</span></div>
+    <h1>${a.title}</h1><p>Published in the Americana Timepieces Journal</p>
+  </div></div>
+  <div class="container content-page" style="max-width:820px;padding-bottom:60px">
+    ${paras.map(p=>`<p>${p}</p>`).join('')}
+    <div class="info-box"><strong>Explore:</strong> Browse our <a onclick="navigate('collection')">full collection</a>.</div>
+    <div style="margin-top:30px;text-align:center"><a class="btn btn-primary" onclick="navigate('collection')"><i class="fas fa-clock"></i> Shop Watches</a></div>
+  </div>${renderFooter()}`;
+}
+
+function renderFooter(){
+  return `<footer class="footer"><div class="container">
+    <div class="footer-grid">
+      <div class="footer-col"><h4>Americana Timepieces</h4><p>Premium American watches since 1923. 100 watches, 1 secure gateway, 1 passion.</p>
+        <div class="footer-socials" style="margin-top:12px"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-facebook"></i></a><a href="#"><i class="fab fa-x-twitter"></i></a><a href="#"><i class="fab fa-youtube"></i></a></div></div>
+      <div class="footer-col"><h4>Shop</h4><ul>
+        <li><a onclick="navigate('collection')">All Watches</a></li><li><a onclick="navigate('brands')">Brands</a></li>
+        <li><a onclick="navigate('categories')">Categories</a></li><li><a onclick="navigate('col-new-arrivals')">New Arrivals</a></li>
+        <li><a onclick="navigate('col-sale')">On Sale</a></li><li><a onclick="navigate('col-gift-guide')">Gift Guide</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Help</h4><ul>
+        <li><a onclick="navigate('svc-shipping')">Shipping</a></li><li><a onclick="navigate('svc-returns')">Returns</a></li>
+        <li><a onclick="navigate('svc-warranty')">Warranty</a></li><li><a onclick="navigate('svc-faq')">FAQ</a></li>
+        <li><a onclick="navigate('svc-track-order')">Track Order</a></li><li><a onclick="navigate('svc-payment-guide')">Payment Guide</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Company</h4><ul>
+        <li><a onclick="navigate('about')">About</a></li><li><a onclick="navigate('contact')">Contact</a></li>
+        <li><a onclick="navigate('svc-careers')">Careers</a></li><li><a onclick="navigate('svc-press')">Press</a></li>
+        <li><a onclick="navigate('directory')">All Pages</a></li><li><a onclick="navigate('svc-privacy')">Privacy</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span class="copy">&copy; 2026 Americana Timepieces — Made in the USA.</span>
+      <span class="copy">Powered by <i class="fas fa-bolt" style="color:#00C3F7"></i> Paystack</span>
+    </div>
+  </div></footer>`;
+}
+
+/* ============================================================
+   7. NAVIGATION
+   ============================================================ */
+function navigate(key){
+  if(!PAGES[key]){showToast('Page not found: '+key);return}
+  document.getElementById('app').innerHTML=PAGES[key].render();
+  $$('.nav-links a').forEach(a=>a.classList.remove('active'));
+  const nav=document.querySelector(`.nav-links a[data-page="${key}"]`);if(nav)nav.classList.add('active');
+  document.getElementById('navLinks').classList.remove('open');
+  window.scrollTo({top:0,behavior:'smooth'});
+  const co=document.getElementById('cartOverlay');if(co.classList.contains('open'))toggleCart();
+}
+
+/* ============================================================
+   8. CART
+   ============================================================ */
+function saveCart(){localStorage.setItem('americana_cart',JSON.stringify(cart))}
+function addToCart(id){
+  const w=WATCHES.find(x=>x.id===id);
+  if(!w||w.inStock===false){showToast('This watch is unavailable.');return}
+  const e=cart.find(i=>i.id===id);
+  if(e)e.qty++;else cart.push({...w,qty:1});
+  saveCart();updateCartUI();showToast(`Added ${w.name} to your cart.`);
+}
+function removeFromCart(id){cart=cart.filter(i=>i.id!==id);saveCart();updateCartUI()}
+function updateQty(id,d){const it=cart.find(i=>i.id===id);if(!it)return;it.qty+=d;if(it.qty<=0){removeFromCart(id);return}saveCart();updateCartUI()}
+function updateCartUI(){
+  const ti=cart.reduce((s,i)=>s+i.qty,0);
+  const tp=cart.reduce((s,i)=>s+i.price*i.qty,0);
+  document.getElementById('cartCount').textContent=ti;
+  document.getElementById('cartTotal').textContent=formatNaira(tp);
+  document.getElementById('checkoutBtn').disabled=cart.length===0;
+  const ci=document.getElementById('cartItems');
+  if(cart.length===0){ci.innerHTML=`<div class="empty-cart"><i class="fas fa-box-open"></i><p>Your cart is empty.</p></div>`}
+  else{ci.innerHTML=cart.map(it=>`<div class="cart-item">
+    <div class="item-image"><img src="${it.imageUrl}" alt="${it.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><i class="fas ${it.icon}" style="display:none"></i></div>
+    <div class="item-info"><div class="name">${it.name}</div><div class="brand">${it.brand}</div><div class="price">${formatNaira(it.price)}</div></div>
+    <div class="item-qty"><button onclick="updateQty(${it.id},-1)"><i class="fas fa-minus"></i></button><span>${it.qty}</span><button onclick="updateQty(${it.id},1)"><i class="fas fa-plus"></i></button></div>
+    <button class="remove-item" onclick="removeFromCart(${it.id})"><i class="fas fa-trash-alt"></i></button>
+  </div>`).join('')}
+}
+function toggleCart(){
+  document.getElementById('cartOverlay').classList.toggle('open');
+  document.getElementById('cartSidebar').classList.toggle('open');
+  document.body.style.overflow=document.getElementById('cartOverlay').classList.contains('open')?'hidden':'';
+}
+
+/* ============================================================
+   9. PAYSTACK-ONLY CHECKOUT
+   ============================================================ */
+function getTotal(){return cart.reduce((s,i)=>s+i.price*i.qty,0)}
+
+function renderPaymentSummary(){
+  const total=getTotal();
+  const items=cart.map(i=>`<div class="row"><span>${i.name} × ${i.qty}</span><span>${formatNaira(i.price*i.qty)}</span></div>`).join('');
+  document.getElementById('pmSummary').innerHTML=items+`<div class="row total"><span>Total</span><span class="amount">${formatNaira(total)}</span></div>`;
+}
+
+function openPayment(){
+  if(cart.length===0)return;
+  renderPaymentSummary();
+  const emailInput=document.getElementById('pmEmail');
+  emailInput.value='';
+  emailInput.classList.remove('error');
+  document.getElementById('pmEmailError').classList.remove('show');
+  document.getElementById('pmSubmit').disabled=true;
+  document.getElementById('paymentOverlay').classList.add('open');
+  document.body.style.overflow='hidden';
+  setTimeout(()=>emailInput.focus(),300);
+}
+
+function closePayment(){
+  document.getElementById('paymentOverlay').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+function validateEmail(){
+  const input=document.getElementById('pmEmail');
+  const err=document.getElementById('pmEmailError');
+  const submit=document.getElementById('pmSubmit');
+  const v=input.value.trim();
+  const valid=/^\S+@\S+\.\S+$/.test(v);
+  if(v===''){input.classList.remove('error');err.classList.remove('show');submit.disabled=true;return false}
+  if(!valid){input.classList.add('error');err.classList.add('show');submit.disabled=true;return false}
+  input.classList.remove('error');err.classList.remove('show');submit.disabled=false;return true;
+}
+
+function processPayment(){
+  if(!validateEmail()){showToast('Please enter a valid email address.');return}
+  if(cart.length===0){showToast('Your cart is empty.');return}
+
+  const total=getTotal();
+  const email=document.getElementById('pmEmail').value.trim();
+  const btn=document.getElementById('pmSubmit');
+  btn.disabled=true;
+  btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Opening Paystack...';
+
+  const handler=PaystackPop.setup({
+    key:'pk_live_669ad09183f1ded9229c99297d5d67f539e3c828',
+    email:email,
+    amount:Math.round(total*100),
+    currency:'NGN',
+    ref:'AMER_'+Date.now()+'_'+Math.floor(Math.random()*1000),
+    metadata:{
+      custom_fields:[
+        {display_name:'Store',variable_name:'store',value:'Americana Timepieces'},
+        {display_name:'Items',variable_name:'items',value:cart.map(i=>`${i.name} x${i.qty}`).join(', ')}
+      ]
+    },
+    callback:function(response){
+      showToast('✅ Payment successful! Reference: '+response.reference);
+      cart=[];
+      saveCart();
+      updateCartUI();
+      closePayment();
+      btn.disabled=false;
+      btn.innerHTML='<i class="fas fa-lock"></i> Pay Securely';
+    },
+    onClose:function(){
+      showToast('Payment window closed.');
+      btn.disabled=false;
+      btn.innerHTML='<i class="fas fa-lock"></i> Pay Securely';
+    }
+  });
+  handler.openIframe();
+}
+
+/* ============================================================
+   10. TOAST
+   ============================================================ */
+let toastTimer;
+function showToast(msg){
+  document.getElementById('toastMessage').textContent=msg;
+  document.getElementById('toast').classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>document.getElementById('toast').classList.remove('show'),3500);
+}
+
+/* ============================================================
+   11. INIT
+   ============================================================ */
+window.addEventListener('scroll',()=>{
+  const b=document.getElementById('scrollTop');
+  if(window.scrollY>500)b.classList.add('visible');else b.classList.remove('visible');
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    if(document.getElementById('cartOverlay').classList.contains('open'))toggleCart();
+    if(document.getElementById('paymentOverlay').classList.contains('open'))closePayment();
+  }
+});
+document.getElementById('paymentOverlay').addEventListener('click',function(e){
+  if(e.target===this)closePayment();
+});
+document.addEventListener('DOMContentLoaded',()=>{
+  updateCartUI();
+  navigate('home');
+  console.log(`✅ Americana Timepieces — ${PAGE_COUNT} pages · ${WATCHES.length} watches · Paystack-only checkout`);
+});
+</script>
+</body>
+</html> 
